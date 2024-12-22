@@ -1,7 +1,5 @@
-<script setup lang="ts">
-const msg = ref('Hello world!');
-</script>
-
 <template>
-  <h1 class="text-3xl font-bold underline">{{ msg }}</h1>
+  <div class="h-screen flex justify-center items-center">
+    <img src="https://img.shields.io/npm/v/three.svg" />
+  </div>
 </template>
