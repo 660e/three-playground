@@ -36,6 +36,9 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
+      '@babylonjs/materials':
+        specifier: ^7.41.1
+        version: 7.41.1(@babylonjs/core@7.41.1)
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.17.0
@@ -231,6 +234,11 @@ packages:
 
   '@babylonjs/core@7.41.1':
     resolution: {integrity: sha512-j7ieqzBmI3z8pXkZ8HUzMn/kJMEfo5/dp40ocpfVeuADd7N6rHxFqrWVbmsrIlkcmAT8Ac1NtqvAJ4GN/evyNw==}
+
+  '@babylonjs/materials@7.41.1':
+    resolution: {integrity: sha512-S3qckBGkph2iLlEEYpiK2ZG9qeLxUmC0SxHQOborHUIe0dCfIB/88MaKM2D1eqDcxXxz5NfWm1vu07njd3E/HA==}
+    peerDependencies:
+      '@babylonjs/core': ^7.0.0
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1992,6 +2000,10 @@ snapshots:
       '@babel/helper-validator-identifier': 7.25.9
 
   '@babylonjs/core@7.41.1': {}
+
+  '@babylonjs/materials@7.41.1(@babylonjs/core@7.41.1)':
+    dependencies:
+      '@babylonjs/core': 7.41.1
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
