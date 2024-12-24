@@ -1,11 +1,11 @@
 import type { RouteRecordRaw } from 'vue-router';
 
 export default {
-  path: '/playground',
+  path: '/three',
   children: [
     {
       path: 'scene',
-      component: () => import('@/views/playground/scene.vue'),
+      component: () => import('@/views/three/scene.vue'),
     },
   ],
 } as RouteRecordRaw;

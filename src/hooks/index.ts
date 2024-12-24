@@ -1,1 +1,1 @@
-export { useThreeScene } from './useThreeScene';
+export { useThreeScene } from './three/useThreeScene';
