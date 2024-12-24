@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@babylonjs/core": "^7.41.1",
     "@vueuse/core": "^11.3.0",
     "axios": "^1.7.9",
     "dayjs": "^1.11.13",
