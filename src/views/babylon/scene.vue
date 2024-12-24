@@ -2,7 +2,7 @@
 import { CreateGround, CreateSphere, Engine, FreeCamera, HemisphericLight, Scene, Vector3 } from '@babylonjs/core';
 import { GridMaterial } from '@babylonjs/materials';
 
-const renderCanvasRef = ref<HTMLCanvasElement>();
+const renderCanvasRef = ref();
 
 onMounted(() => {
   const engine = new Engine(renderCanvasRef.value!);
@@ -26,9 +26,13 @@ onMounted(() => {
   engine.runRenderLoop(() => {
     scene.render();
   });
+
+  window.addEventListener('resize', () => {
+    engine.resize();
+  });
 });
 </script>
 
 <template>
-  <canvas class="h-screen" ref="renderCanvasRef"></canvas>
+  <canvas class="h-screen w-screen" ref="renderCanvasRef"></canvas>
 </template>
