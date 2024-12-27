@@ -1,4 +1,4 @@
-import { useElementSize } from '@vueuse/core';
+import { useDebounceFn, useElementSize, useResizeObserver } from '@vueuse/core';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
 import * as THREE from 'three';
@@ -15,16 +15,22 @@ export const useThreeScene = (el: Ref) => {
   renderer.setAnimationLoop(animate);
 
   onMounted(() => {
-    camera.aspect = width.value / height.value;
-    camera.updateProjectionMatrix();
-    renderer.setSize(width.value, height.value);
+    initialize();
     el.value.appendChild(renderer.domElement);
     el.value.appendChild(stats.dom);
   });
 
+  useResizeObserver(el, useDebounceFn(initialize, 100));
+
   function animate() {
     orbitControls.update();
     renderer.render(scene, camera);
+  }
+
+  function initialize() {
+    camera.aspect = width.value / height.value;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width.value, height.value);
   }
 
   return { scene, camera, renderer, orbitControls };
