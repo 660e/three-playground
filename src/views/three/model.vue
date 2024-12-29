@@ -11,7 +11,11 @@ scene.add(new THREE.GridHelper(100, 10));
 onMounted(async () => {
   const model = await useThreeModelLoader('/models/school-building.glb');
 
+  if (!model) return;
   console.log(model);
+  model.position.set(0, 0, -10);
+  model.scale.set(20, 20, 20);
+  scene.add(model);
 });
 </script>
 

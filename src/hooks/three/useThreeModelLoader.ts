@@ -4,11 +4,11 @@ const gltfLoader = new GLTFLoader();
 
 export const useThreeModelLoader = async (url: string) => {
   try {
-    const gltf = gltfLoader.loadAsync(url, (event) => {
+    const gltf = await gltfLoader.loadAsync(url, (event) => {
       console.log(`${Math.floor((event.loaded / event.total) * 100)}%`);
     });
-    return gltf;
-  } catch (error) {
-    console.error(error);
+    return gltf.scene;
+  } catch {
+    console.error(url);
   }
 };
