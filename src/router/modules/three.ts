@@ -8,6 +8,10 @@ export default {
       component: () => import('@/views/three/model.vue'),
     },
     {
+      path: 'raycaster',
+      component: () => import('@/views/three/raycaster.vue'),
+    },
+    {
       path: 'scene',
       component: () => import('@/views/three/scene.vue'),
     },
