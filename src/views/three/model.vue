@@ -3,18 +3,23 @@ import { useThreeModelLoader, useThreeScene } from '@/hooks';
 import * as THREE from 'three';
 
 const sceneRef = ref();
-const { scene } = useThreeScene(sceneRef);
+const { camera, scene } = useThreeScene(sceneRef);
 
 scene.add(new THREE.AxesHelper(60));
 scene.add(new THREE.GridHelper(100, 10));
 
+camera.position.set(50, 50, 50);
+
+const ambientLight = new THREE.AmbientLight();
+scene.add(ambientLight);
+
 onMounted(async () => {
-  const model = await useThreeModelLoader('/models/school-building.glb');
+  const model = await useThreeModelLoader('/models/building.glb');
 
   if (!model) return;
   console.log(model);
-  model.position.set(0, 0, -10);
-  model.scale.set(20, 20, 20);
+  model.position.set(0, 0, 0);
+  model.scale.set(1, 1, 1);
   scene.add(model);
 });
 </script>
