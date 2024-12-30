@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useThreeModelLoader, useThreeScene } from '@/hooks';
+import { useThreeScene } from '@/hooks/three';
+import { modelLoader } from '@/utils/three';
 import * as THREE from 'three';
 
 const sceneRef = ref();
@@ -14,13 +15,14 @@ const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
 onMounted(async () => {
-  const model = await useThreeModelLoader('/models/building.glb');
+  const model = await modelLoader('/models/building.glb');
 
-  if (!model) return;
-  console.log(model);
-  model.position.set(0, 0, 0);
-  model.scale.set(1, 1, 1);
-  scene.add(model);
+  if (model) {
+    console.log(model);
+    model.position.set(0, 0, 0);
+    model.scale.set(1, 1, 1);
+    scene.add(model);
+  }
 });
 </script>
 

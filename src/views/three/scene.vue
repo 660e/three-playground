@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useThreeScene } from '@/hooks';
+import { useThreeScene } from '@/hooks/three';
 import * as THREE from 'three';
 
 const sceneRef = ref();
