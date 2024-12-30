@@ -33,5 +33,5 @@ export const useThreeScene = (el: Ref) => {
     renderer.setSize(width.value, height.value);
   }
 
-  return { scene, camera, renderer, orbitControls };
+  return { width, height, scene, camera, renderer, orbitControls };
 };
