@@ -22,6 +22,7 @@ onMounted(async () => {
 
   const model = await loadModel('/models/building.glb');
   if (model) {
+    model.scale.set(10, 10, 10);
     scene.add(model);
     console.log(scene.children);
   }

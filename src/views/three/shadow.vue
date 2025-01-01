@@ -31,9 +31,15 @@ scene.add(directionalLightHelper);
 const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
 scene.add(cameraHelper);
 
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), new THREE.MeshStandardMaterial({ color: 0x999999 }));
+plane.rotation.x = -Math.PI / 2;
+plane.receiveShadow = true;
+scene.add(plane);
+
 onMounted(async () => {
   const model = await loadModel('/models/building.glb');
   if (model) {
+    model.scale.set(10, 10, 10);
     model.traverse((object) => {
       object.castShadow = true;
       object.receiveShadow = true;

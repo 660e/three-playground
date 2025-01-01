@@ -18,7 +18,7 @@ onMounted(async () => {
   const model = await loadModel('/models/building.glb');
   if (model) {
     model.position.set(0, 0, 0);
-    model.scale.set(1, 1, 1);
+    model.scale.set(10, 10, 10);
     scene.add(new THREE.BoxHelper(model, 0xff0000));
     scene.add(model);
 
