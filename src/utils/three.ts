@@ -19,3 +19,11 @@ const cubeTextureLoader = new THREE.CubeTextureLoader();
 export const loadSkybox = () => {
   return cubeTextureLoader.load(['/skybox/x-.webp', '/skybox/x+.webp', '/skybox/y+.webp', '/skybox/y-.webp', '/skybox/z+.webp', '/skybox/z-.webp']);
 };
+
+export const modelSize = (model: THREE.Group) => {
+  const box = new THREE.Box3().setFromObject(model);
+  const size = new THREE.Vector3();
+  box.getSize(size);
+
+  return size;
+};

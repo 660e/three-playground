@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useThreeScene } from '@/hooks/three';
-import { loadModel } from '@/utils/three';
+import { loadModel, modelSize } from '@/utils/three';
 import * as THREE from 'three';
 
 const sceneRef = ref();
@@ -19,7 +19,10 @@ onMounted(async () => {
   if (model) {
     model.position.set(0, 0, 0);
     model.scale.set(1, 1, 1);
+    scene.add(new THREE.BoxHelper(model, 0xff0000));
     scene.add(model);
+
+    console.table(modelSize(model));
   }
 });
 </script>
