@@ -16,6 +16,10 @@ export default {
       component: () => import('@/views/three/scene.vue'),
     },
     {
+      path: 'shadow',
+      component: () => import('@/views/three/shadow.vue'),
+    },
+    {
       path: 'skybox',
       component: () => import('@/views/three/skybox.vue'),
     },
