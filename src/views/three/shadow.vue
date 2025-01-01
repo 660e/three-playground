@@ -23,7 +23,7 @@ directionalLight.shadow.camera.left = -50;
 directionalLight.shadow.camera.right = 50;
 directionalLight.shadow.camera.bottom = -50;
 directionalLight.shadow.camera.far = 300;
-directionalLight.shadow.bias = -0.005;
+directionalLight.shadow.bias = -0.0005;
 scene.add(directionalLight);
 
 const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight);
