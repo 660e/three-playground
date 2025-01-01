@@ -19,11 +19,9 @@ backgroundImage.src = ColorsImage;
 backgroundImage.onload = () => {
   canvas.width = backgroundImage.width;
   canvas.height = backgroundImage.height;
-
   context.drawImage(backgroundImage, 0, 0);
 
   const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas) }));
-  sprite.position.set(0, 0, 0);
 
   console.table({ 'canvas.width': canvas.width, 'canvas.height': canvas.height });
   console.table({ 'backgroundImage.width': backgroundImage.width, 'backgroundImage.height': backgroundImage.height });
