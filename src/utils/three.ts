@@ -2,10 +2,12 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const gltfLoader = new GLTFLoader();
 
-export const modelLoader = async (url: string) => {
+export const modelLoader = async (url: string, progress?: boolean) => {
   try {
     const gltf = await gltfLoader.loadAsync(url, (event) => {
-      console.log(`${Math.floor((event.loaded / event.total) * 100)}%`);
+      if (progress) {
+        console.log(`${Math.floor((event.loaded / event.total) * 100)}%`);
+      }
     });
     return gltf.scene;
   } catch {
