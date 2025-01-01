@@ -20,7 +20,7 @@ const pointer = new THREE.Vector2();
 onMounted(async () => {
   window.addEventListener('pointermove', onPointerMove);
 
-  const model = await loadModel('/models/building.glb');
+  const model = await loadModel('/models/home.glb');
   if (model) {
     scene.add(model);
     console.log(scene.children);

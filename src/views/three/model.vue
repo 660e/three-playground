@@ -15,11 +15,11 @@ const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
 onMounted(async () => {
-  const model = await loadModel('/models/building.glb');
+  const model = await loadModel('/models/home.glb');
 
   if (model) {
     console.log(model);
-    model.position.set(0, 0, 0);
+    model.position.set(0, 3, 0);
     model.scale.set(1, 1, 1);
     scene.add(model);
   }
