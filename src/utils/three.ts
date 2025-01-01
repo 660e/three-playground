@@ -1,5 +1,7 @@
+import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
+const cubeTextureLoader = new THREE.CubeTextureLoader();
 const gltfLoader = new GLTFLoader();
 
 export const modelLoader = async (url: string, progress?: boolean) => {
@@ -13,4 +15,10 @@ export const modelLoader = async (url: string, progress?: boolean) => {
   } catch {
     console.error(url);
   }
+};
+
+export const loadSkybox = () => {
+  const texture = cubeTextureLoader.load([]);
+
+  return texture;
 };

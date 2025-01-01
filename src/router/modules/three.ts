@@ -15,5 +15,9 @@ export default {
       path: 'scene',
       component: () => import('@/views/three/scene.vue'),
     },
+    {
+      path: 'skybox',
+      component: () => import('@/views/three/skybox.vue'),
+    },
   ],
 } as RouteRecordRaw;
