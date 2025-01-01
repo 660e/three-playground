@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useThreeScene } from '@/hooks/three';
-import { modelLoader } from '@/utils/three';
+import { loadModel } from '@/utils/three';
 import * as THREE from 'three';
 
 const sceneRef = ref();
@@ -20,7 +20,7 @@ const pointer = new THREE.Vector2();
 onMounted(async () => {
   window.addEventListener('pointermove', onPointerMove);
 
-  const model = await modelLoader('/models/building.glb');
+  const model = await loadModel('/models/building.glb');
   if (model) {
     scene.add(model);
     console.log(scene.children);

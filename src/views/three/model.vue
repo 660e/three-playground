@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useThreeScene } from '@/hooks/three';
-import { modelLoader } from '@/utils/three';
+import { loadModel } from '@/utils/three';
 import * as THREE from 'three';
 
 const sceneRef = ref();
@@ -15,7 +15,7 @@ const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
 onMounted(async () => {
-  const model = await modelLoader('/models/building.glb');
+  const model = await loadModel('/models/building.glb');
 
   if (model) {
     console.log(model);
