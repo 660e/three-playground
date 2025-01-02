@@ -18,7 +18,6 @@ onMounted(async () => {
   if (model) {
     model.scale.set(10, 10, 10);
     scene.add(model);
-    console.log(scene.children);
   }
 });
 onUnmounted(() => {
@@ -37,25 +36,32 @@ const onPointerMove = (event: MouseEvent) => {
   raycaster.setFromCamera(pointer, camera);
 
   const intersects = raycaster.intersectObjects(scene.children);
-
   if (intersects.length) {
     const { object } = intersects[0];
-    if (object.uuid !== uuid) {
-      uuid = object.uuid;
+    if (object.parent?.uuid !== uuid) {
+      emissive(intersected);
+      uuid = object.parent?.uuid;
       intersected = object;
-
+      emissive(intersected, 0x0000ff);
       console.log(uuid);
-      console.log(intersected);
     }
   } else {
     if (uuid) {
+      emissive(intersected);
       uuid = undefined;
       intersected = undefined;
-
       console.log(uuid);
-      console.log(intersected);
     }
   }
+};
+
+const emissive = (object?: THREE.Object3D, color = 0x000000) => {
+  object?.parent?.traverse((child) => {
+    const item = child as THREE.Mesh;
+    if (item.isMesh) {
+      (item.material as THREE.MeshStandardMaterial).emissive.set(color);
+    }
+  });
 };
 </script>
 
